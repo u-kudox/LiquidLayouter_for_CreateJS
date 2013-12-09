@@ -1,0 +1,970 @@
+{
+    "project": {
+        "name": "LiquidLayouter for CreateJS",
+        "description": "LiquidLayouter for CreateJS API documentation.",
+        "version": "1.1.0",
+        "url": "http://kudox.jp/java-script/createjs-liquidlayout"
+    },
+    "files": {
+        "../src/liquidlayouter-1.1.0.js": {
+            "name": "../src/liquidlayouter-1.1.0.js",
+            "modules": {},
+            "classes": {
+                "createjs.LiquidLayouter": 1,
+                "createjs.StageAlign": 1,
+                "createjs.SizeFollowRule": 1,
+                "LayoutObject": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "createjs": 1
+            }
+        }
+    },
+    "modules": {},
+    "classes": {
+        "createjs.LiquidLayouter": {
+            "name": "createjs.LiquidLayouter",
+            "shortname": "LiquidLayouter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "createjs",
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 31,
+            "description": "LiquidLayouterは、CreateJSを使ったHTML5 canvasのリキッドレイアウトをより簡単に実装するための拡張ライブラリです。LiquidLayouterは、Singletonクラスです。インスタンスを生成するには、コンストラクタではなくcreatejs.LiquidLayouter.getInstance()を使用して下さい。",
+            "is_constructor": 1,
+            "example": [
+                "\n<pre><code>_layouter = createjs.LiquidLayouter.getInstance();\n_layouter.initialize(_stage);\n_layouter.addLayoutObject(displayObject, \"TL\");\n_layouter.updateLayout();</code></pre>"
+            ]
+        },
+        "createjs.StageAlign": {
+            "name": "createjs.StageAlign",
+            "shortname": "StageAlign",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "createjs",
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 735,
+            "description": "StageAlignクラスは、Staticクラスであり、インスタンス化することはできません。StageAlignクラスは、alignプロパティに使用する定数値を提供します。",
+            "static": 1
+        },
+        "createjs.SizeFollowRule": {
+            "name": "createjs.SizeFollowRule",
+            "shortname": "SizeFollowRule",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "createjs",
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 816,
+            "description": "SizeFollowRuleクラスは、Staticクラスであり、インスタンス化することはできません。SizeFollowRuleクラスは、sizeFollowRuleプロパティに使用する定数値を提供します。",
+            "static": 1
+        },
+        "LayoutObject": {
+            "name": "LayoutObject",
+            "shortname": "LayoutObject",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "",
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 892,
+            "description": "LiquidLayouterが内部でobjectを保持する際に使用するクラスです。getLayoutObjectでインスタンスを取得することができます。このコンストラクタは、外部からコールすることはできません。LiquidLayouterにobjectを登録するには、addLayoutObject()を使用して下さい。",
+            "access": "private",
+            "tagname": "",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "object",
+                    "description": "DisplayObjectの参照。",
+                    "type": "DisplayObject"
+                },
+                {
+                    "name": "align",
+                    "description": "DisplayObjectを配置する位置。",
+                    "type": "String"
+                },
+                {
+                    "name": "x",
+                    "description": "数値の場合はalignの座標から見た相対x座標。文字列の場合はStageの幅を\"1\"とした比率。",
+                    "type": "Number | String"
+                },
+                {
+                    "name": "y",
+                    "description": "数値の場合はalignの座標から見た相対y座標。文字列の場合はStageの高さを\"1\"とした比率。",
+                    "type": "Number | String"
+                },
+                {
+                    "name": "rounded",
+                    "description": "座標値を整数に丸めるかのBool値。",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "sizeFollowRule",
+                    "description": "ステージサイズの変更に伴ってobjectのサイズを変更する際のルール。",
+                    "type": "String"
+                },
+                {
+                    "name": "scaleX",
+                    "description": "object.scaleXの初期値。",
+                    "type": "Number"
+                },
+                {
+                    "name": "scaleY",
+                    "description": "object.scaleYの初期値。",
+                    "type": "Number"
+                }
+            ]
+        }
+    },
+    "classitems": [
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 11,
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 51,
+            "description": "[read only] LiquidLayouterが、initialize()により初期化されているかを示すBool値。",
+            "itemtype": "property",
+            "name": "initialized",
+            "type": "Boolean",
+            "readonly": "",
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 61,
+            "description": "[read only] Stageインスタンスの参照。",
+            "itemtype": "property",
+            "name": "stage",
+            "type": "Stage",
+            "readonly": "",
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 71,
+            "description": "[read only] canvas要素の参照。",
+            "itemtype": "property",
+            "name": "canvas",
+            "type": "HTMLCanvasElement",
+            "readonly": "",
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 81,
+            "description": "[read only] 現在のcanvas.widthの値。",
+            "itemtype": "property",
+            "name": "stageWidth",
+            "type": "Number",
+            "readonly": "",
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 91,
+            "description": "[read only] 現在のcanvas.heightの値。",
+            "itemtype": "property",
+            "name": "stageHeight",
+            "type": "Number",
+            "readonly": "",
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 101,
+            "description": "[read only] LiquidLayouterがレイアウトを行う範囲を示すRectangleオブジェクト。このRectangleが示すのはcanvasの描画領域ではありません。例えば、canvas.widthが1600であっても、maxWidthが1200に設定されていれば、widthは1200となります。また、removeResizeListener()を呼んだ場合は、更新が行われないので最後に更新された値となります。",
+            "itemtype": "property",
+            "name": "drawingAreaRect",
+            "type": "Rectangle",
+            "readonly": "",
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 114,
+            "description": "LiquidLayouterが、initialize()により初期化されているかをBool値で返します。",
+            "itemtype": "method",
+            "name": "getInitialized",
+            "return": {
+                "description": "LiquidLayouterが初期化されているかを示すBool値。",
+                "type": "Boolean"
+            },
+            "deprecated": true,
+            "deprecationMessage": "Use `initialized` instead.",
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 124,
+            "description": "Stageインスタンスの参照を返します。",
+            "itemtype": "method",
+            "name": "getStage",
+            "return": {
+                "description": "Stageインスタンスの参照。",
+                "type": "Stage"
+            },
+            "deprecated": true,
+            "deprecationMessage": "Use `stage` instead.",
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 134,
+            "description": "canvas要素の参照を返します。",
+            "itemtype": "method",
+            "name": "getCanvas",
+            "return": {
+                "description": "canvas要素の参照。",
+                "type": "HTMLCanvasElement"
+            },
+            "deprecated": true,
+            "deprecationMessage": "Use `canvas` instead.",
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 144,
+            "description": "現在のcanvas.widthの値を返します。",
+            "itemtype": "method",
+            "name": "getStageWidth",
+            "return": {
+                "description": "現在のcanvas.widthの値。",
+                "type": "Number"
+            },
+            "deprecated": true,
+            "deprecationMessage": "Use `stageWidth` instead.",
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 154,
+            "description": "現在のcanvas.heightの値を返します。",
+            "itemtype": "method",
+            "name": "getStageHeight",
+            "return": {
+                "description": "現在のcanvas.heightの値。",
+                "type": "Number"
+            },
+            "deprecated": true,
+            "deprecationMessage": "Use `stageHeight` instead.",
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 164,
+            "description": "LiquidLayouterがレイアウトを行う範囲を示すRectangleを返します。このRectangleが示すのはcanvasの描画領域ではありません。例えば、canvas.widthが1600であっても、maxWidthが1200に設定されていれば、widthは1200となります。また、removeResizeListener()を呼んだ場合は、更新が行われないので最後に更新された値となります。",
+            "itemtype": "method",
+            "name": "getDrawingAreaRect",
+            "return": {
+                "description": "LiquidLayouterがレイアウトを行う範囲を示すRectangleオブジェクト。",
+                "type": "Rectangle"
+            },
+            "deprecated": true,
+            "deprecationMessage": "Use `drawingAreaRect` instead.",
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 174,
+            "description": "Stageの配置を指定する値です。StageAlignクラスの定数が使用できます。initialize()の第2引数で指定することができますが、minWidth, minHeight, maxWidth, maxHeightのいずれかが指定されていなければ、指定する意味はありません。",
+            "itemtype": "property",
+            "name": "align",
+            "type": "String",
+            "default": "\"\"",
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 182,
+            "description": "レイアウトにおけるStage幅の最小値です。initialize()の第3引数で指定することができます。例えば、この値を800に設定した場合、canvas.widthが800未満になった場合でもLiquidLayouterは800として処理します。",
+            "itemtype": "property",
+            "name": "minWidth",
+            "type": "Number",
+            "default": "0",
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 190,
+            "description": "レイアウトにおけるStage高さの最小値です。initialize()の第4引数で指定することができます。例えば、この値を600に設定した場合、canvas.heightが600未満になった場合でもLiquidLayouterは600として処理します。",
+            "itemtype": "property",
+            "name": "minHeight",
+            "type": "Number",
+            "default": "0",
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 198,
+            "description": "レイアウトにおけるStage幅の最大値です。initialize()の第5引数で指定することができます。例えば、この値を1600に設定した場合、canvas.widthが1600を超えた場合でもLiquidLayouterは1600として処理します。",
+            "itemtype": "property",
+            "name": "maxWidth",
+            "type": "Number",
+            "default": "0",
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 206,
+            "description": "レイアウトにおけるStage高さの最大値です。initialize()の第6引数で指定することができます。例えば、この値を1200に設定した場合、canvas.heightが1200を超えた場合でもLiquidLayouterは1200として処理します。",
+            "itemtype": "property",
+            "name": "maxHeight",
+            "type": "Number",
+            "default": "0",
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 214,
+            "description": "trueを指定することで、canvas.widthの値を固定することができます。ブラウザウィンドウの大きさによってcanvasの高さだけを変更したい場合、initialize()よりも前にtrueを指定しておきます。",
+            "itemtype": "property",
+            "name": "fixedWidth",
+            "type": "Boolean",
+            "default": "false",
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 222,
+            "description": "trueを指定することで、canvas.heightの値を固定することができます。ブラウザウィンドウの大きさによってcanvasの幅だけを変更したい場合、initialize()よりも前にtrueを指定しておきます。",
+            "itemtype": "property",
+            "name": "fixedHeight",
+            "type": "Boolean",
+            "default": "false",
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 230,
+            "description": "Tweenが使用可能かを示すBool値です。orientationchangeイベントをサポートしているデバイスで且つTween.jsが読み込まれていれば、自動的にtrueになります。orientationchangeイベントをサポートしていない環境やTween.jsが読み込まれていない環境ではtrueを指定しても効果はありません。",
+            "itemtype": "property",
+            "name": "tweenEnabled",
+            "type": "Boolean",
+            "default": "false",
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 238,
+            "description": "Tweenを使用する場合の所要時間です。",
+            "itemtype": "property",
+            "name": "tweenTime",
+            "type": "Number",
+            "default": "1000",
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 246,
+            "description": "Tweenを使用する場合のイージングです。",
+            "itemtype": "property",
+            "name": "tweenEase",
+            "type": "Object",
+            "default": "Ease.quintOut",
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 254,
+            "description": "LiquidLayouterインスタンスを初期化します。第2引数以降は省略可能です。",
+            "itemtype": "method",
+            "name": "initialize",
+            "params": [
+                {
+                    "name": "stage",
+                    "description": "Stageインスタンスの参照。",
+                    "type": "Stage"
+                },
+                {
+                    "name": "align",
+                    "description": "Stageの配置を指定する文字列。StageAlignクラスの定数が使用できます。省略可能で初期値は\"\"。",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "\"\""
+                },
+                {
+                    "name": "minWidth",
+                    "description": "Stage幅の最小値。省略可能で初期値は0。",
+                    "type": "Number",
+                    "optional": true,
+                    "optdefault": "0"
+                },
+                {
+                    "name": "minHeight",
+                    "description": "Stage高さの最小値。省略可能で初期値は0。",
+                    "type": "Number",
+                    "optional": true,
+                    "optdefault": "0"
+                },
+                {
+                    "name": "maxWidth",
+                    "description": "Stage幅の最大値。省略可能で初期値は0。",
+                    "type": "Number",
+                    "optional": true,
+                    "optdefault": "0"
+                },
+                {
+                    "name": "maxHeight",
+                    "description": "Stage高さの最大値。省略可能で初期値は0。",
+                    "type": "Number",
+                    "optional": true,
+                    "optdefault": "0"
+                }
+            ],
+            "example": [
+                "\n<pre><code>_layouter.initialize(_stage);</code></pre>"
+            ],
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 298,
+            "description": "リキッドレイアウトで配置したいobjectを登録します。",
+            "itemtype": "method",
+            "name": "addLayoutObject",
+            "params": [
+                {
+                    "name": "object",
+                    "description": "objectの参照。objectはDisplayObjectを継承している必要があります。",
+                    "type": "DisplayObject"
+                },
+                {
+                    "name": "align",
+                    "description": "objectを配置する位置を指定します。StageAlignクラスの定数を使用することができます。",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "\"\""
+                },
+                {
+                    "name": "x",
+                    "description": "第2引数のalignの位置から見た相対x座標。省略またはNaNを指定した場合は、objectの現在の座標値から相対座標が自動的に計算されます。数値を文字列で指定した場合は、Stageの幅を\"1\"とした比率となります。",
+                    "type": "Number | String",
+                    "optional": true,
+                    "optdefault": "undefined"
+                },
+                {
+                    "name": "y",
+                    "description": "第2引数のalignの位置から見た相対y座標。省略またはNaNを指定した場合は、objectの現在の座標値から相対座標が自動的に計算されます。数値を文字列で指定した場合は、Stageの高さを\"1\"とした比率となります。",
+                    "type": "Number | String",
+                    "optional": true,
+                    "optdefault": "undefined"
+                },
+                {
+                    "name": "rounded",
+                    "description": "座標値を整数に丸めるかをBool値で指定します。省略可能で初期値はfalse。",
+                    "type": "Boolean",
+                    "optional": true,
+                    "optdefault": "false"
+                },
+                {
+                    "name": "sizeFollowRule",
+                    "description": "ステージサイズの変更に伴ってobjectのサイズを変更する際のルールをSizefollowRuleクラスの定数で指定します。省略した場合は、初期値のSizeFollowRule.NONEとなり、サイズ変更処理は行われません。",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "SizeFollowRule.NONE"
+                },
+                {
+                    "name": "scaleX",
+                    "description": "object.scaleXの初期値です。省略またはNaNを指定した場合は、objectの現在のscaleXの値となります。",
+                    "type": "Number",
+                    "optional": true,
+                    "optdefault": "object.scaleX"
+                },
+                {
+                    "name": "scaleY",
+                    "description": "object.scaleYの初期値です。省略またはNaNを指定した場合は、objectの現在のscaleYの値となります。",
+                    "type": "Number",
+                    "optional": true,
+                    "optdefault": "object.scaleY"
+                }
+            ],
+            "example": [
+                "\n<pre><code>_layouter.addLayoutObject(displayObject1, \"T\", 0, 0);\n_layouter.addLayoutObject(displayObject2, \"\", \"0.5\", \"0.3\", false, \"widthFollow\");</code></pre>"
+            ],
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 346,
+            "description": "LiquidLayouterに登録したobjectをLayoutObjectとして取得します。このLayoutObjectを通して、addLayoutObject()で登録したプロパティを変更することができます。",
+            "itemtype": "method",
+            "name": "getLayoutObject",
+            "params": [
+                {
+                    "name": "object",
+                    "description": "objectの参照。",
+                    "type": "DisplayObject"
+                }
+            ],
+            "return": {
+                "description": "LayoutObjectの参照。",
+                "type": "Object"
+            },
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 361,
+            "description": "LiquidLayouterに登録したobjectを削除します。LiquidLayouterは、登録したobjectの参照を保持しています。不要になったobjectは、必ずremoveLayoutObject()で削除するようにして下さい。",
+            "itemtype": "method",
+            "name": "removeLayoutObject",
+            "params": [
+                {
+                    "name": "object",
+                    "description": "objectの参照。",
+                    "type": "DisplayObject"
+                }
+            ],
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 373,
+            "description": "第1引数で指定された位置から見た相対x座標を返します。",
+            "itemtype": "method",
+            "name": "getRelativeX",
+            "params": [
+                {
+                    "name": "align",
+                    "description": "相対座標の基準となる位置。StageAlignクラスの定数を使用することができます。",
+                    "type": "String"
+                },
+                {
+                    "name": "x",
+                    "description": "x座標値。",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "相対x座標値。",
+                "type": "Number"
+            },
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 400,
+            "description": "第1引数で指定された位置から見た相対y座標を返します。",
+            "itemtype": "method",
+            "name": "getRelativeY",
+            "params": [
+                {
+                    "name": "align",
+                    "description": "相対座標の基準となる位置。StageAlignクラスの定数を使用することができます。",
+                    "type": "String"
+                },
+                {
+                    "name": "y",
+                    "description": "y座標値。",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "相対y座標値。",
+                "type": "Number"
+            },
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 427,
+            "description": "引数で指定された位置の座標をPointオブジェクトで返します。",
+            "itemtype": "method",
+            "name": "getAlignPoint",
+            "params": [
+                {
+                    "name": "align",
+                    "description": "座標を取得したいStage上の位置。StageAlignクラスの定数を使用することができます。",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "座標を格納したPointオブジェクト。",
+                "type": "Point"
+            },
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 478,
+            "description": "LiquidLayouterに登録したobjectのレイアウトを更新します。",
+            "itemtype": "method",
+            "name": "updateLayout",
+            "params": [
+                {
+                    "name": "object",
+                    "description": "レイアウトを更新したいobjectの参照。省略した場合は、LiquidLayouterに登録された全てのobjectのレイアウトが更新されます。",
+                    "type": "DisplayObject",
+                    "optional": true,
+                    "optdefault": "undefined"
+                }
+            ],
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 497,
+            "description": "ウィンドウサイズが変更された際に実行されるメソッドです。canvasのサイズ変更、drawingAreaRectの更新、登録されたDisplayObjectのレイアウトを更新する処理を行います。",
+            "itemtype": "method",
+            "name": "onResize",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "イベントオブジェクト。",
+                    "type": "Event",
+                    "optional": true,
+                    "optdefault": "null"
+                }
+            ],
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 508,
+            "description": "windowオブジェクトにresizeのイベントリスナーを追加します。initialize()の際に実行されているため、removeResizeListener()を実行した後でなければ、コールする意味はありません。",
+            "itemtype": "method",
+            "name": "addResizeListener",
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 516,
+            "description": "windowオブジェクトからresizeのイベントリスナーを削除します。",
+            "itemtype": "method",
+            "name": "removeResizeListener",
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 524,
+            "description": "LiquidLayouterインスタンスを取得します。LiquidLayouterはSingletonクラスであるため、異なる場所で取得しても必ず同じインスタンスが返されます。",
+            "static": 1,
+            "itemtype": "method",
+            "name": "getInstance",
+            "return": {
+                "description": "LiquidLayouterインスタンス。",
+                "type": "LiquidLayouter"
+            },
+            "example": [
+                "\n<pre><code>_layouter = createjs.LiquidLayouter.getInstance();</code></pre>"
+            ],
+            "class": "createjs.LiquidLayouter",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 744,
+            "description": "値は\"B\"です。縦位置は下揃え、横位置は中央揃えを指定します。",
+            "static": 1,
+            "itemtype": "property",
+            "name": "BOTTOM",
+            "type": "String",
+            "final": 1,
+            "class": "createjs.StageAlign",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 753,
+            "description": "値は\"BL\"です。縦位置は下揃え、横位置は左揃えを指定します。",
+            "static": 1,
+            "itemtype": "property",
+            "name": "BOTTOM_LEFT",
+            "type": "String",
+            "final": 1,
+            "class": "createjs.StageAlign",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 762,
+            "description": "値は\"BR\"です。縦位置は下揃え、横位置は右揃えを指定します。",
+            "static": 1,
+            "itemtype": "property",
+            "name": "BOTTOM_RIGHT",
+            "type": "String",
+            "final": 1,
+            "class": "createjs.StageAlign",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 771,
+            "description": "値は\"L\"です。縦位置は中央揃え、横位置は左揃えを指定します。",
+            "static": 1,
+            "itemtype": "property",
+            "name": "LEFT",
+            "type": "String",
+            "final": 1,
+            "class": "createjs.StageAlign",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 780,
+            "description": "値は\"R\"です。縦位置は中央揃え、横位置は右揃えを指定します。",
+            "static": 1,
+            "itemtype": "property",
+            "name": "RIGHT",
+            "type": "String",
+            "final": 1,
+            "class": "createjs.StageAlign",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 789,
+            "description": "値は\"T\"です。縦位置は上揃え、横位置は中央揃えを指定します。",
+            "static": 1,
+            "itemtype": "property",
+            "name": "TOP",
+            "type": "String",
+            "final": 1,
+            "class": "createjs.StageAlign",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 798,
+            "description": "値は\"TL\"です。縦位置は上揃え、横位置は左揃えを指定します。",
+            "static": 1,
+            "itemtype": "property",
+            "name": "TOP_LEFT",
+            "type": "String",
+            "final": 1,
+            "class": "createjs.StageAlign",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 807,
+            "description": "値は\"TR\"です。縦位置は上揃え、横位置は右揃えを指定します。",
+            "static": 1,
+            "itemtype": "property",
+            "name": "TOP_RIGHT",
+            "type": "String",
+            "final": 1,
+            "class": "createjs.StageAlign",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 825,
+            "description": "値は\"auto\"です。canvasの幅の拡大・縮小率とcanvasの高さの拡大・縮小率を比べて、大きい方の拡大・縮小率でobjectのscaleX, scaleYを変更します。objectのアスペクト比は維持します。",
+            "static": 1,
+            "itemtype": "property",
+            "name": "AUTO",
+            "type": "String",
+            "final": 1,
+            "class": "createjs.SizeFollowRule",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 834,
+            "description": "値は\"widthFollow\"です。canvasの幅の拡大・縮小率でobjectのscaleX, scaleYを変更します。objectのアスペクト比は維持します。",
+            "static": 1,
+            "itemtype": "property",
+            "name": "WIDTH_FOLLOW",
+            "type": "String",
+            "final": 1,
+            "class": "createjs.SizeFollowRule",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 843,
+            "description": "値は\"heightFollow\"です。canvasの高さの拡大・縮小率でobjectのscaleX, scaleYを変更します。objectのアスペクト比は維持します。",
+            "static": 1,
+            "itemtype": "property",
+            "name": "HEIGHT_FOLLOW",
+            "type": "String",
+            "final": 1,
+            "class": "createjs.SizeFollowRule",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 852,
+            "description": "値は\"widthOnly\"です。canvasの幅の拡大・縮小率でobjectのscaleXを変更します。objectのアスペクト比は維持しません。",
+            "static": 1,
+            "itemtype": "property",
+            "name": "WIDTH_ONLY",
+            "type": "String",
+            "final": 1,
+            "class": "createjs.SizeFollowRule",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 861,
+            "description": "値は\"heightOnly\"です。canvasの高さの拡大・縮小率でobjectのscaleYを変更します。objectのアスペクト比は維持しません。",
+            "static": 1,
+            "itemtype": "property",
+            "name": "HEIGHT_ONLY",
+            "type": "String",
+            "final": 1,
+            "class": "createjs.SizeFollowRule",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 870,
+            "description": "値は\"fit\"です。canvasの幅の拡大・縮小率でobjectのscaleXを変更し、canvasの高さの拡大・縮小率でobjectのscaleYを変更します。objectのアスペクト比は維持しません。",
+            "static": 1,
+            "itemtype": "property",
+            "name": "FIT",
+            "type": "String",
+            "final": 1,
+            "class": "createjs.SizeFollowRule",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 879,
+            "description": "値は\"none\"です。サイズ変更処理を行いません。",
+            "static": 1,
+            "itemtype": "property",
+            "name": "NONE",
+            "type": "String",
+            "final": 1,
+            "class": "createjs.SizeFollowRule",
+            "namespace": "createjs"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 888,
+            "class": "createjs.SizeFollowRule"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 907,
+            "description": "DisplayObjectの参照。",
+            "itemtype": "property",
+            "name": "object",
+            "type": "DisplayObject",
+            "class": "LayoutObject"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 914,
+            "description": "DisplayObjectを配置する位置。",
+            "itemtype": "property",
+            "name": "align",
+            "type": "String",
+            "class": "LayoutObject"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 921,
+            "description": "数値の場合はalignの座標から見た相対x座標。文字列の場合はStageの幅を\"1\"とした比率。",
+            "itemtype": "property",
+            "name": "x",
+            "type": "Number | String",
+            "class": "LayoutObject"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 928,
+            "description": "数値の場合はalignの座標から見た相対y座標。文字列の場合はStageの高さを\"1\"とした比率。",
+            "itemtype": "property",
+            "name": "y",
+            "type": "Number | String",
+            "class": "LayoutObject"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 935,
+            "description": "座標値を整数に丸めるかをBool値。",
+            "itemtype": "property",
+            "name": "rounded",
+            "type": "Boolean",
+            "class": "LayoutObject"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 942,
+            "description": "ステージサイズの変更に伴ってobjectのサイズを変更する際のルール。",
+            "itemtype": "property",
+            "name": "sizeFollowRule",
+            "type": "String",
+            "class": "LayoutObject"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 949,
+            "description": "object.scaleXの初期値。",
+            "itemtype": "property",
+            "name": "scaleX",
+            "type": "Number",
+            "class": "LayoutObject"
+        },
+        {
+            "file": "../src/liquidlayouter-1.1.0.js",
+            "line": 956,
+            "description": "object.scaleYの初期値。",
+            "itemtype": "property",
+            "name": "scaleY",
+            "type": "Number",
+            "class": "LayoutObject"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type",
+            "line": " ../src/liquidlayouter-1.1.0.js:11"
+        },
+        {
+            "message": "Missing item type",
+            "line": " ../src/liquidlayouter-1.1.0.js:888"
+        }
+    ]
+}

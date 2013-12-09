@@ -6,17 +6,7 @@ LiquidLayouter is a extension library to easily implement a liquid layout in HTM
 ## Example
 	_layouter = createjs.LiquidLayouter.getInstance();
 	_layouter.initialize(_stage);
-	_layouter.addLayoutObject(_topLeft, "TL");
-	_layouter.addLayoutObject(_top, "T", 0, 0);
-	_layouter.addLayoutObject(_topRight, "TR", "1", "0");
-	_layouter.addLayoutObject(_left, "L", NaN, NaN, true);
-	_layouter.addLayoutObject(_right, "R");
-	_layouter.addLayoutObject(_bottomLeft, "BL");
-	_layouter.addLayoutObject(_bottom, "B");
-	_layouter.addLayoutObject(_bottomRight, "BR");
-	_layouter.addLayoutObject(_title, "", "0.5", "0.3", false, "widthFollow");
-	_layouter.addLayoutObject(_subTitle, "", "0.5", "0.75", false, "widthFollow");
-	_layouter.addLayoutObject(_background, "TL", NaN, NaN, false, "fit");
+	_layouter.addLayoutObject(displayObject, "TL");
 	_layouter.updateLayout();
 
 
