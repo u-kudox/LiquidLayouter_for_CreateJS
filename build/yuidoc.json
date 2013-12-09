@@ -1,0 +1,10 @@
+{
+    "name": "LiquidLayouter for CreateJS",
+    "description": "LiquidLayouter for CreateJS API documentation.",
+    "version": "1.1.0",
+    "url": "http://kudox.jp/java-script/createjs-liquidlayout",
+    "options": {
+        "outdir": "../docs",
+        "paths":["../src"]
+    }
+}
