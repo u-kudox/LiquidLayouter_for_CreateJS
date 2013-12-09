@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="css/index.css" media="all">
 <script type="text/javascript" src="js/easeljs-0.7.0.min.js"></script>
 <script type="text/javascript" src="js/tweenjs-0.5.0.min.js"></script>
-<script type="text/javascript" src="js/liquidlayouter-1.0.0.min.js"></script>
+<script type="text/javascript" src="js/liquidlayouter-1.1.0.min.js"></script>
 <script type="text/javascript">
 
 var BOX_W = 106;
@@ -52,9 +52,26 @@ function init(canvasID) {
 	_title = createText("LiquidLayouter Demo", "36px Consolas", "#666666", halfW, canvasH * 0.25);
 	_subTitle = createText("LiquidLayouter is very easy to use.", "18px Consolas", "#666666", halfW, canvasH * 0.75);
 	createjs.Ticker.setFPS(30);
-	createjs.Ticker.useRAF = true;
+	createjs.Ticker.timingMode = createjs.Ticker.RAF_SYNCHED;
 	createjs.Ticker.addEventListener("tick", _stage);
 	registerLayout();
+}
+
+function registerLayout() {
+	_layouter = createjs.LiquidLayouter.getInstance();
+	_layouter.initialize(_stage);
+	_layouter.addLayoutObject(_topLeft, "TL");
+	_layouter.addLayoutObject(_top, "T", 0, 0);
+	_layouter.addLayoutObject(_topRight, "TR", "1", "0");
+	_layouter.addLayoutObject(_left, "L", NaN, NaN, true);
+	_layouter.addLayoutObject(_right, "R");
+	_layouter.addLayoutObject(_bottomLeft, "BL");
+	_layouter.addLayoutObject(_bottom, "B");
+	_layouter.addLayoutObject(_bottomRight, "BR");
+	_layouter.addLayoutObject(_title, "", "0.5", "0.3", false, "widthFollow");
+	_layouter.addLayoutObject(_subTitle, "", "0.5", "0.75", false, "widthFollow");
+	_layouter.addLayoutObject(_background, "TL", NaN, NaN, false, "fit");
+	_layouter.updateLayout();
 }
 
 function createContainer(x, y, localX, localY, label) {
@@ -84,23 +101,6 @@ function createText(text, font, color, x, y) {
 	text.textBaseline = "middle";
 	_stage.addChild(text);
 	return text;
-}
-
-function registerLayout() {
-	_layouter = createjs.LiquidLayouter.getInstance();
-	_layouter.initialize(_stage);
-	_layouter.addLayoutObject(_topLeft, "TL");
-	_layouter.addLayoutObject(_top, "T", 0, 0);
-	_layouter.addLayoutObject(_topRight, "TR", "1", "0");
-	_layouter.addLayoutObject(_left, "L", NaN, NaN, true);
-	_layouter.addLayoutObject(_right, "R");
-	_layouter.addLayoutObject(_bottomLeft, "BL");
-	_layouter.addLayoutObject(_bottom, "B");
-	_layouter.addLayoutObject(_bottomRight, "BR");
-	_layouter.addLayoutObject(_title, "", "0.5", "0.3", false, "widthFollow");
-	_layouter.addLayoutObject(_subTitle, "", "0.5", "0.75", false, "widthFollow");
-	_layouter.addLayoutObject(_background, "TL", NaN, NaN, false, "fit");
-	_layouter.updateLayout();
 }
 
 window.addEventListener("load", function loadHandler(evt) {

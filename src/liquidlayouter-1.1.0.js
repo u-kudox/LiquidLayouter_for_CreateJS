@@ -14,6 +14,7 @@ Copyright (c) 2012 kudox.jp
 this.createjs = this.createjs || {};
 
 (function(window) {
+	"use strict";
 
 	var HALF = 0.5;
 	var _isInternalAccess = false;
@@ -39,6 +40,8 @@ this.createjs = this.createjs || {};
 		_isInternalAccess = false;
 	}
 
+	LiquidLayouter.VERSION = "1.1.0";
+
 	/**
 	* LiquidLayouterインスタンスを取得します。LiquidLayouterはSingletonクラスであるため、異なる場所で取得しても必ず同じインスタンスが返されます。
 	* @static
@@ -55,12 +58,72 @@ this.createjs = this.createjs || {};
 	};
 
 	var p = LiquidLayouter.prototype = {
+		/**
+		* [read only] LiquidLayouterが、initialize()により初期化されているかを示すBool値。
+		* @property initialized
+		* @type Boolean
+		* @readOnly
+		**/
+		get initialized() {
+			return _initialized;
+		},
+
+		/**
+		* [read only] Stageインスタンスの参照。
+		* @property stage
+		* @type Stage
+		* @readOnly
+		**/
+		get stage() {
+			return _stage;
+		},
+
+		/**
+		* [read only] canvas要素の参照。
+		* @property canvas
+		* @type HTMLCanvasElement
+		* @readOnly
+		**/
+		get canvas() {
+			return _canvas;
+		},
+
+		/**
+		* [read only] 現在のcanvas.widthの値。
+		* @property stageWidth
+		* @type Number
+		* @readOnly
+		**/
+		get stageWidth() {
+			return _canvas.width;
+		},
+
+		/**
+		* [read only] 現在のcanvas.heightの値。
+		* @property stageHeight
+		* @type Number
+		* @readOnly
+		**/
+		get stageHeight() {
+			return _canvas.height;
+		},
+
+		/**
+		* [read only] LiquidLayouterがレイアウトを行う範囲を示すRectangleオブジェクト。このRectangleが示すのはcanvasの描画領域ではありません。例えば、canvas.widthが1600であっても、maxWidthが1200に設定されていれば、widthは1200となります。また、removeResizeListener()を呼んだ場合は、更新が行われないので最後に更新された値となります。
+		* @property drawingAreaRect
+		* @type Rectangle
+		* @readOnly
+		**/
+		get drawingAreaRect() {
+			return _drawingAreaRect;
+		}
 	};
 
 	/**
 	* LiquidLayouterが、initialize()により初期化されているかをBool値で返します。
 	* @method getInitialized
 	* @return {Boolean} LiquidLayouterが初期化されているかを示すBool値。
+	* @deprecated Use `initialized` instead.
 	**/
 	p.getInitialized = function() {
 		return _initialized;
@@ -70,6 +133,7 @@ this.createjs = this.createjs || {};
 	* Stageインスタンスの参照を返します。
 	* @method getStage
 	* @return {Stage} Stageインスタンスの参照。
+	* @deprecated Use `stage` instead.
 	**/
 	p.getStage = function() {
 		return _stage;
@@ -79,6 +143,7 @@ this.createjs = this.createjs || {};
 	* canvas要素の参照を返します。
 	* @method getCanvas
 	* @return {HTMLCanvasElement} canvas要素の参照。
+	* @deprecated Use `canvas` instead.
 	**/
 	p.getCanvas = function() {
 		return _canvas;
@@ -88,6 +153,7 @@ this.createjs = this.createjs || {};
 	* 現在のcanvas.widthの値を返します。
 	* @method getStageWidth
 	* @return {Number} 現在のcanvas.widthの値。
+	* @deprecated Use `stageWidth` instead.
 	**/
 	p.getStageWidth = function() {
 		return _canvas.width;
@@ -97,6 +163,7 @@ this.createjs = this.createjs || {};
 	* 現在のcanvas.heightの値を返します。
 	* @method getStageHeight
 	* @return {Number} 現在のcanvas.heightの値。
+	* @deprecated Use `stageHeight` instead.
 	**/
 	p.getStageHeight = function() {
 		return _canvas.height;
@@ -106,6 +173,7 @@ this.createjs = this.createjs || {};
 	* LiquidLayouterがレイアウトを行う範囲を示すRectangleを返します。このRectangleが示すのはcanvasの描画領域ではありません。例えば、canvas.widthが1600であっても、maxWidthが1200に設定されていれば、widthは1200となります。また、removeResizeListener()を呼んだ場合は、更新が行われないので最後に更新された値となります。
 	* @method getDrawingAreaRect
 	* @return {Rectangle} LiquidLayouterがレイアウトを行う範囲を示すRectangleオブジェクト。
+	* @deprecated Use `drawingAreaRect` instead.
 	**/
 	p.getDrawingAreaRect = function() {
 		return _drawingAreaRect;
@@ -633,10 +701,10 @@ this.createjs = this.createjs || {};
 
 	function updateCanvasSize() {
 		if (!_instance.fixedWidth) {
-			_canvas.width = document.documentElement.clientWidth;
+			_canvas.width = window.innerWidth;
 		}
 		if (!_instance.fixedHeight) {
-			_canvas.height = document.documentElement.clientHeight;
+			_canvas.height = window.innerHeight;
 		}
 	}
 

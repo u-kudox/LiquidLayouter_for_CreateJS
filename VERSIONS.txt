@@ -1,3 +1,31 @@
+ver 1.1.0 [Dec 09, 2013]
+**********************************************************************************
+- implemented "use strict" mode
+- added initialized (getter)
+- added stage (getter)
+- added canvas (getter)
+- added stagewidth (getter)
+- added stageHeight (getter)
+- added drawingAreaRect (getter)
+- fixed a bug that protrude height of window at iOS7 Safari of iPad.
+
+*****
+DEPRECATED (will be removed in a future version):
+- getInitialized()
+  use `initialized` instead.
+- getStage()
+  use `stage` instead.
+- getCanvas()
+  use `canvas` instead.
+- getStageWidth()
+  use `stageWidth` instead.
+- getStageHeight()
+  use `stageHeight` instead.
+- getDrawingAreaRect()
+  use `drawingAreaRect` instead.
+
+
+
 ver 1.0.0 [Oct 27, 2012]
 **********************************************************************************
 Initial release.
